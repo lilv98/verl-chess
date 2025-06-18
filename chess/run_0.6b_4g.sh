@@ -2,7 +2,7 @@ set -x
 
 export WANDB_API_KEY=b946fefc3d07285c361fb257fc851e05994a864e
 export HYDRA_FULL_ERROR=1
-export CUDA_VISIBLE_DEVICES=0,1,2,3
+export CUDA_VISIBLE_DEVICES=0,1
 export MODEL_ROOT=/data1/models/Qwen
 export MODEL_NAME=Qwen3-0.6B
 export PROJECT_NAME=chess-llm
@@ -48,7 +48,7 @@ python3 -m verl.trainer.main_ppo \
     trainer.project_name=$PROJECT_NAME \
     trainer.experiment_name=$EXPERIMENT_NAME \
     trainer.default_local_dir=$CHECKPOINT_DIR \
-    trainer.n_gpus_per_node=4 \
+    trainer.n_gpus_per_node=2 \
     trainer.nnodes=1 \
     trainer.save_freq=100 \
     trainer.test_freq=10 \
